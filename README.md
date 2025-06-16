@@ -1,6 +1,7 @@
 # Kali NetHunter Rootless Auto Installer 🔥
 
-🚀 Majority of peoples are facing problelm in running Kali Rootless on Android so here is the full process of installing it correctly as i have Automate the full installation of Kali Linux NetHunter Rootless on any Android using Termux — **no root required!** As following this crucial  step few manual steps will be needed then you are ready to run in rootlessmode for more demo visit youtube.
+🚀 Majority of peoples are facing problelm in running Kali Rootless on Android so here is the full process of installing it correctly as i have Automated the full installation of Kali Linux NetHunter Rootless on any Android using Termux — **no root required!** As everyone need to follow this first crucial  step then you need to set up with few manual steps then you are ready to run Kali in your mobile in Rootless mode. For Watching a demo visit my youtube channel.
+(https://youtube.com/@InfosecPiyush)
 Built for ethical hackers, cybersecurity learners, and mobile warriors.
 
 ### ⚙️ Features
