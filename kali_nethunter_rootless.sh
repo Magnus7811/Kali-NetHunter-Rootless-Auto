@@ -1,40 +1,13 @@
-#!/data/data/com.termux/files/usr/bin/bash
-
+#!/bin/bash
 termux-setup-storage
-
 pkg update -y && pkg upgrade -y
-pkg install -y wget curl proot pulseaudio git gnupg nano coreutils tar openssh net-tools unzip vim python nodejs
+pkg install wget curl -y
 
-mkdir -p $HOME/.nethunter
+# Download install script
+wget -O install-nh https://raw.githubusercontent.com/jorexdeveloper/termux-nethunter/main/install-nethunter.sh
 
-wget -O $HOME/.nethunter/install-nethunter-termux https://offs.ec/2MceZWr || \
-curl -fsSLo $HOME/.nethunter/install-nethunter.sh https://raw.githubusercontent.com/jorexdeveloper/termux-nethunter/main/install-nethunter.sh
+# Patch BASE_URL to current daily build directory
+sed -i 's|https://kali.download/nethunter-images/current/rootfs|https://image-nethunter.kali.org/nethunter-fs/kali-daily|' install-nh
 
-chmod +x $HOME/.nethunter/install-nethunter*
-
-cd $HOME/.nethunter
-./install-nethunter-termux || bash install-nethunter.sh
-
-echo 'alias nh="nethunter"' >> ~/.bashrc
-echo 'alias kexstart="nethunter kex &"' >> ~/.bashrc
-echo 'alias kexstop="nethunter kex stop"' >> ~/.bashrc
-echo 'alias kexpass="nethunter kex passwd"' >> ~/.bashrc
-echo 'echo Powered by InfosecPiyush 🔥 | Subscribe: https://youtube.com/@InfosecPiyush' >> ~/.bashrc
-
-nethunter -r <<EOF
-sudo apt update
-sudo apt install -y kali-linux-large
-sudo apt full-upgrade -y
-EOF
-
-clear
-echo ""
-echo "🔥 Kali NetHunter Rootless Installed Successfully 🔥"
-echo ""
-echo "💻 Launch it with:     nh"
-echo "🧠 GUI Desktop:        kexpass -> kexstart"
-echo "🛑 Stop GUI:           kexstop"
-echo ""
-echo "🎬 Powered by: InfosecPiyush"
-echo "👉 Subscribe Now: https://youtube.com/@InfosecPiyush"
-echo ""
+chmod +x install-nh
+./install-nh
